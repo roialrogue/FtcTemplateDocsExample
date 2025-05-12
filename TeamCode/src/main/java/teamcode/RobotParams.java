@@ -78,7 +78,8 @@ public class RobotParams
         // Tuning
         public static final boolean tuneColorBlobVision         = false;
         public static final boolean tuneDriveBase               = false;
-        public static final boolean useCRServoArm                    = false;
+        public static final boolean useCRServoArm               = false;
+        public static final boolean useServoArm                 = false;
     }   //class Preferences
 
     /**

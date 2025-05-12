@@ -33,6 +33,7 @@ import teamcode.subsystems.CRServoArm;
 import teamcode.subsystems.LEDIndicator;
 import teamcode.subsystems.RobotBase;
 import teamcode.subsystems.RumbleIndicator;
+import teamcode.subsystems.ServoArm;
 import teamcode.vision.Vision;
 import trclib.motor.TrcMotor;
 import trclib.motor.TrcServo;
@@ -67,7 +68,8 @@ public class Robot
     public RumbleIndicator operatorRumble;
     public FtcRobotBattery battery;
     // Subsystems.
-    public TrcMotor arm;
+    public TrcMotor CRArm;
+    public ServoArm servoArm;
     // Autotasks.
 
     /**
@@ -116,11 +118,14 @@ public class Robot
             if (RobotParams.Preferences.useSubsystems)
             {
                 // Create subsystems.
-                if(RobotParams.Preferences.useCRServoArm)
+                if(RobotParams.Preferences.useCRServoArm && !RobotParams.Preferences.useServoArm)
                 {
-                    arm = new CRServoArm().getMotor();
+                    CRArm = new CRServoArm().getMotor();
                 }
-
+                else if(RobotParams.Preferences.useServoArm && !RobotParams.Preferences.useCRServoArm)
+                {
+                    servoArm = new ServoArm();
+                }
                 // Zero calibrate all subsystems only in Auto or if TeleOp is run standalone without prior Auto.
                 // There is no reason to zero calibrate again if Auto was run right before TeleOp.
                 if (runMode == TrcRobot.RunMode.AUTO_MODE || FtcAuto.autoChoices.alliance == null)

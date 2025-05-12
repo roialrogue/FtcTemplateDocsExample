@@ -11,7 +11,7 @@ public class CRServoArm extends TrcSubsystem
 {
     public static final class Params
     {
-        public static final String SUBSYSTEM_NAME               = "CRServoArm";
+        public static final String SUBSYSTEM_NAME               = "ServoArm";
         public static final boolean NEED_ZERO_CAL               = true;
 
         public static final FtcMotorActuator.MotorType MOTOR_TYPE= FtcMotorActuator.MotorType.CRServo;
@@ -20,8 +20,8 @@ public class CRServoArm extends TrcSubsystem
         public static final String FOLLOWER_CRSERVO_NAME        = SUBSYSTEM_NAME + ".follower";
         public static final boolean FOLLOWER_CRSERVO_INVERTED   = true;
 
-        public static final String EXTERNAL_ENCODER_NAME                    = SUBSYSTEM_NAME + ".encoder";
-        public static final boolean EXTERNAL_ENCODER_INVERTED               = false;
+        public static final String EXTERNAL_ENCODER_NAME        = SUBSYSTEM_NAME + ".encoder";
+        public static final boolean EXTERNAL_ENCODER_INVERTED   = false;
 
         public static final double DEG_PER_COUNT                = 0; //360
         public static final double ZERO_OFFSET                  = 0.0; //TBD
