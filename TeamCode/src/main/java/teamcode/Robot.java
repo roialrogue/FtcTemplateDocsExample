@@ -29,6 +29,7 @@ import ftclib.driverio.FtcDashboard;
 import ftclib.driverio.FtcMatchInfo;
 import ftclib.robotcore.FtcOpMode;
 import ftclib.sensor.FtcRobotBattery;
+import teamcode.subsystems.CRServoArm;
 import teamcode.subsystems.LEDIndicator;
 import teamcode.subsystems.RobotBase;
 import teamcode.subsystems.RumbleIndicator;
@@ -66,6 +67,7 @@ public class Robot
     public RumbleIndicator operatorRumble;
     public FtcRobotBattery battery;
     // Subsystems.
+    public TrcMotor arm;
     // Autotasks.
 
     /**
@@ -114,6 +116,10 @@ public class Robot
             if (RobotParams.Preferences.useSubsystems)
             {
                 // Create subsystems.
+                if(RobotParams.Preferences.useCRServoArm)
+                {
+                    arm = new CRServoArm().getMotor();
+                }
 
                 // Zero calibrate all subsystems only in Auto or if TeleOp is run standalone without prior Auto.
                 // There is no reason to zero calibrate again if Auto was run right before TeleOp.
